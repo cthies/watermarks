@@ -38,14 +38,31 @@ The application is available at <code>http://localhost:8080</code>
 This returns the json with id and an empty watermark:
 
 ```
-#!json
-{"id":1,"title":"yourTitle","author":"authorsName","topic":null,"watermark":null,"content":"journal"}C
+{
+  "id":1,
+  "title":"yourTitle",
+  "author":"authorsName",
+  "topic":null,
+  "watermark":null,
+  "content":"journal"
+}
 ```
 
 If this document is already watermarked, the post returns json with watermark:
 ```
-#!json
-{"id":1,"title":"yourTitle","author":"authorsName","topic":null,"watermark":{"content":"journal","title":"yourTitle","author":"authorsName"},"content":"journal"}
+{
+  "id":1,
+  "title":"yourTitle",
+  "author":"authorsName",
+  "topic":null,
+  "watermark":
+    {
+      "content":"journal",
+      "title":"yourTitle",
+      "author":"authorsName"
+    },
+  "content":"journal"
+}
 ```
 
 ## Post a book
@@ -55,15 +72,33 @@ If this document is already watermarked, the post returns json with watermark:
 This returns the json with id and an empty watermark:
 
 ```
-#!json
-{"id":2,"title":"title","author":"authorName","topic":"topic","watermark":null,"content":"book"}
+{
+  "id":2,
+  "title":"title",
+  "author":"authorName",
+  "topic":"topic",
+  "watermark":null,
+  "content":"book"
+}
 ```
 
 If this document is already watermarked, the post returns json with watermark:
 
 ```
-#!json
-{"id":2,"title":"title","author":"authorName","topic":"topic","watermark":{"content":"book","title":"title","author":"authorName","topic":"topic"},"content":"book"}
+{
+  "id":2,
+  "title":"title",
+  "author":"authorName",
+  "topic":"topic",
+  "watermark":
+    {
+      "content":"book",
+      "title":"title",
+      "author":"authorName",
+      "topic":"topic"
+    },
+  "content":"book"
+}
 ```
 
 ## Get watermark
@@ -73,15 +108,18 @@ If this document is already watermarked, the post returns json with watermark:
 If the watermark does not exists it will returns an error:
 
 ```
-#!json
 {"error":"Not Found"}
 ```
 
 otherwise it will returns the watermark json:
 
 ```
-#!json
-{"content":"book","title":"title","author":"authorName","topic":"topic"}
+{
+  "content":"book",
+  "title":"title",
+  "author":"authorName",
+  "topic":"topic"
+}
 ```
 
 ## Test
